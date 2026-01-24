@@ -1,0 +1,1 @@
+ALTER TABLE "cars" ALTER COLUMN "make" SET DATA TYPE varchar(120);
