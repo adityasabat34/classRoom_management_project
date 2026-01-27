@@ -13,7 +13,7 @@ app.get("/", (req, res) => {
   res.send("Hello World!");
 });
 
-app.post("/cars", async (req, res) => {
+app.post("/api/cars", async (req, res) => {
   const { make, model, year, price } = req.body;
   console.log("req.body", req.body);
 
@@ -29,13 +29,13 @@ app.post("/cars", async (req, res) => {
   res.status(201).json(newCar);
 });
 
-app.get("/cars", async (req, res) => {
+app.get("/api/cars", async (req, res) => {
   const getAllCars = await db.select().from(cars);
 
   res.status(200).json(getAllCars);
 });
 
-app.put("/cars/:id", async (req, res) => {
+app.put("/api/cars/:id", async (req, res) => {
   const { id } = req.params;
   const { make, model, year, price } = req.body;
 
@@ -46,16 +46,19 @@ app.put("/cars/:id", async (req, res) => {
   const updatedCar = await db
     .update(cars)
     .set({ make, model, year, price })
-    .where(eq(cars.id, id))
+    .where(eq(cars.id, Number(id)))
     .returning();
 
   res.status(200).json(updatedCar);
 });
 
-app.delete("/cars/:id", async (req, res) => {
+app.delete("/api/cars/:id", async (req, res) => {
   const { id } = req.params;
 
-  const deletedCar = await db.delete(cars).where(eq(cars.id, id)).returning();
+  const deletedCar = await db
+    .delete(cars)
+    .where(eq(cars.id, Number(id)))
+    .returning();
 
   res.status(200).json(deletedCar);
 });
