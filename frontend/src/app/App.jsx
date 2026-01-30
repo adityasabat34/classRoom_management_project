@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Car from "./components/Car";
+import Car from "../components/Car";
 import { useEffect } from "react";
 
 export const App = () => {
