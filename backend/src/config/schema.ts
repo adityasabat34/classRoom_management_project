@@ -1,17 +1,13 @@
-// import {
-//   pgTable,
-//   serial,
-//   varchar,
-//   integer,
-//   numeric,
-//   timestamp,
-// } from "drizzle-orm/pg-core";
+import { pgTable, serial, text, timestamp } from "drizzle-orm/pg-core";
 
-// export const cars = pgTable("cars", {
-//   id: serial("id").primaryKey(),
-//   make: varchar("make", { length: 120 }).notNull(),
-//   model: varchar("model", { length: 100 }).notNull(),
-//   year: integer("year").notNull(),
-//   price: numeric("price", { precision: 10, scale: 2 }).notNull(),
-//   createdAt: timestamp("created_at").defaultNow(),
-// });
+// Define the 'demo_users' table
+export const demoUsers = pgTable("demo_users", {
+  id: serial("id").primaryKey(),
+  name: text("name").notNull(),
+  email: text("email").notNull().unique(),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+});
+
+// Export types for type-safe queries
+export type User = typeof demoUsers.$inferSelect;
+export type NewUser = typeof demoUsers.$inferInsert;
