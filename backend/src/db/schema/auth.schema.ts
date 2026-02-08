@@ -18,6 +18,7 @@ const timestamps = {
     .defaultNow()
     .$onUpdate(() => new Date())
     .notNull(),
+  deletedAt: timestamp("deleted_at"), // null = active, timestamp = soft deleted
 };
 
 export const user = pgTable("user", {
