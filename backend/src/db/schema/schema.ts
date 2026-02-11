@@ -51,7 +51,9 @@ export const classes = pgTable("classes", {
   subjectId: integer("subject_id")
     .notNull()
     .references(() => subjects.id, { onDelete: "cascade" }),
-  teacherId: text("teacher_id").notNull(),
+  teacherId: text("teacher_id")
+    .notNull()
+    .references(() => user.id, { onDelete: "restrict" }),
   name: varchar("name", { length: 50 }).notNull(),
   inviteCode: varchar("invite_code", { length: 50 }).notNull().unique(),
   bannerCldPubId: text("banner_cld_pub_id"),

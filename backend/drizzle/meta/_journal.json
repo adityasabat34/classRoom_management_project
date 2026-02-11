@@ -36,6 +36,13 @@
       "when": 1770539760285,
       "tag": "0004_jazzy_whirlwind",
       "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "7",
+      "when": 1770779348049,
+      "tag": "0005_deep_guardsmen",
+      "breakpoints": true
     }
   ]
 }
