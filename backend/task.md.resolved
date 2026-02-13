@@ -1,0 +1,20 @@
+# LMS Backend Implementation Plan
+
+- [ ] **Phase 1: Foundation (Auth & Users)**
+  - [ ] Verify Better Auth setup (Sign-up, Sign-in, Sign-out) <!-- id: 0 -->
+  - [ ] Implement User Profile Routes (`GET /me`, `PATCH /me`) <!-- id: 1 -->
+  - [ ] Create Auth Middleware (`requireAuth`, `requireRole`) <!-- id: 2 -->
+
+- [ ] **Phase 2: Administrative Structure**
+  - [ ] Department CRUD (`POST`, `GET`, `PATCH`, `DELETE`) <!-- id: 3 -->
+  - [ ] Subject CRUD (`POST`, `GET`, `PATCH`, `DELETE`) <!-- id: 4 -->
+
+- [ ] **Phase 3: Classroom Management**
+  - [ ] Class CRUD (`POST`, `GET`, `PATCH`, `DELETE`) <!-- id: 5 -->
+  - [ ] Class Status Management (Active/Archived) <!-- id: 6 -->
+  - [ ] Invite Code Regeneration <!-- id: 7 -->
+
+- [ ] **Phase 4: Student Participation**
+  - [ ] Join Class (Enrollment via Invite Code) <!-- id: 8 -->
+  - [ ] My Classes (Student View) & My Teaching (Teacher View) <!-- id: 9 -->
+  - [ ] Manage Students (List, Remove) <!-- id: 10 -->

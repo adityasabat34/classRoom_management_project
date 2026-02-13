@@ -43,6 +43,13 @@
       "when": 1770779348049,
       "tag": "0005_deep_guardsmen",
       "breakpoints": true
+    },
+    {
+      "idx": 6,
+      "version": "7",
+      "when": 1770971816660,
+      "tag": "0006_square_frank_castle",
+      "breakpoints": true
     }
   ]
 }

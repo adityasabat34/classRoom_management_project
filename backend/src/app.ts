@@ -1,10 +1,7 @@
 import express, { Application, Request, Response, NextFunction } from "express";
 import logger from "./utils/logger";
-import { auth } from "./utils/auth";
-import { toNodeHandler } from "better-auth/node";
 
 const app: Application = express();
-app.all("/api/auth/*splat", toNodeHandler(auth));
 
 app.use(express.json());
 
