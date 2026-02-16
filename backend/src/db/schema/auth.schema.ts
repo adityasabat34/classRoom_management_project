@@ -44,6 +44,7 @@ export const teacherProfiles = pgTable("teacher_profiles", {
   //1:1 with user
   userId: text("user_id")
     .notNull()
+    .unique()
     .references(() => user.id, { onDelete: "cascade" }),
 
   bio: text("bio"),
