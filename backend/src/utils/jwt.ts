@@ -1,9 +1,7 @@
 import jwt from "jsonwebtoken";
 import type { User } from "../db/schema";
 
-if (!process.env.JWT_SECRET) {
-  throw new Error("JWT_SECRET is not defined");
-}
+const JWT_SECRET = process.env.JWT_SECRET as string;
 
 export const generateToken = (user: User) => {
   return jwt.sign(
@@ -11,7 +9,7 @@ export const generateToken = (user: User) => {
       sub: user.id,
       role: user.role,
     },
-    process.env.JWT_SECRET as string,
+    JWT_SECRET,
     {
       expiresIn: "7d",
     },
