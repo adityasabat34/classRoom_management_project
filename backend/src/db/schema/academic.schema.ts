@@ -87,6 +87,11 @@ export const enrollments = pgTable(
   ],
 );
 
+export const userRelations = relations(user, ({ many }) => ({
+  classes: many(classes),
+  enrollments: many(enrollments),
+}));
+
 export const departmentRelations = relations(departments, ({ many }) => ({
   subjects: many(subjects),
 }));
